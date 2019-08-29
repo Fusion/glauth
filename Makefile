@@ -1,5 +1,6 @@
 VERSION=$(shell bin/glauth64 --version)
 
+
 GIT_COMMIT=$(shell git rev-list -1 HEAD )
 BUILD_TIME=$(shell date --utc +%Y%m%d_%H%M%SZ)
 GIT_CLEAN=$(shell git status | grep -E "working (tree|directory) clean" | wc -l)
