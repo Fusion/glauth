@@ -70,7 +70,7 @@ devrun:
 
 
 linux32:
-	GOOS=linux GOARCH=386 go build -ldflags "${BUILD_VARS}" -o bin/glauth32 ${BUILD_FILES} && cd bin && sha256sum glauth32 > glauth32.sha256
+	GOOS=linux CGO_ENABLED=1 GOARCH=386 go build -ldflags "${BUILD_VARS}" -o bin/glauth32 ${BUILD_FILES} && cd bin && sha256sum glauth32 > glauth32.sha256
 
 linux64:
 	GOOS=linux GOARCH=amd64 go build -ldflags "${BUILD_VARS}" -o bin/glauth64 ${BUILD_FILES} && cd bin && sha256sum glauth64 > glauth64.sha256
