@@ -98,7 +98,7 @@ osxcross:
 	cd osxcross && \
 	wget -nc https://s3.dockerproject.org/darwin/v2/MacOSX10.10.sdk.tar.xz && \
 	mv MacOSX10.10.sdk.tar.xz tarballs/ && \
-	UNATTENDED=yes OSX_VERSION_MIN=10.7 ./build.sh
+	UNATTENDED=yes OSX_VERSION_MIN=10.10 ./build.sh
 
 darwin64: osxcross
 	PATH=$$PWD/osxcross/target/bin:$$PATH GOOS=darwin CGO_ENABLED=1 CC=o64-clang GOARCH=amd64 go build -ldflags "${BUILD_VARS}" -o bin/glauthOSX ${BUILD_FILES} && cd bin && sha256sum glauthOSX > glauthOSX.sha256
