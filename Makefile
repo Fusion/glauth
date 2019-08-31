@@ -70,13 +70,13 @@ devrun:
 
 
 linux32:
-	GOOS=linux CGO_ENABLED=1 GOARCH=386 go build -ldflags "${BUILD_VARS}" -o bin/glauth32 ${BUILD_FILES} && cd bin && sha256sum glauth32 > glauth32.sha256
+	sudo apt-get install gcc-multilib && GOOS=linux CGO_ENABLED=1 GOARCH=386 go build -ldflags "${BUILD_VARS}" -o bin/glauth32 ${BUILD_FILES} && cd bin && sha256sum glauth32 > glauth32.sha256
 
 linux64:
 	GOOS=linux GOARCH=amd64 go build -ldflags "${BUILD_VARS}" -o bin/glauth64 ${BUILD_FILES} && cd bin && sha256sum glauth64 > glauth64.sha256
 
 linuxarm32:
-	GOOS=linux CGO_ENABLED=1 CC=arm-linux-gnueabihf-gcc GOARCH=arm go build -ldflags "${BUILD_VARS}" -o bin/glauth-arm32 ${BUILD_FILES} && cd bin && sha256sum glauth-arm32 > glauth-arm32.sha256
+	sudo apt-get install gcc-multilib-arm-linux-gnueabihf && GOOS=linux CGO_ENABLED=1 CC=arm-linux-gnueabihf-gcc GOARCH=arm go build -ldflags "${BUILD_VARS}" -o bin/glauth-arm32 ${BUILD_FILES} && cd bin && sha256sum glauth-arm32 > glauth-arm32.sha256
 
 linuxarm64:
 	GOOS=linux GOARCH=arm64 go build -ldflags "${BUILD_VARS}" -o bin/glauth-arm64 ${BUILD_FILES} && cd bin && sha256sum glauth-arm64 > glauth-arm64.sha256
